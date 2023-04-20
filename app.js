@@ -5,8 +5,8 @@
 //Break things down into smaller steps and take each step at a time.
 //Event handling, user interaction is what starts the code execution.
 
-const taskInput = document.getElementById("new-task"); //Add a new task.
-const addButton = document.getElementById("add-button"); //Add a new task.
+const taskInput = document.getElementById("new-task");
+const addButton = document.getElementById("add-button");
 const incompleteTaskHolder = document.getElementById("incomplete-tasks");
 const completedTasksHolder = document.getElementById("completed-tasks");
 
@@ -30,6 +30,7 @@ const createNewTaskElement = function (taskString) {
   editButton.className = "edit";
   deleteButton.className = "delete";
   deleteButtonImg.src = "./remove.svg";
+  deleteButtonImg.alt = "";
   deleteButton.appendChild(deleteButtonImg);
 
   listItem.appendChild(checkBox);
@@ -37,6 +38,7 @@ const createNewTaskElement = function (taskString) {
   listItem.appendChild(editInput);
   listItem.appendChild(editButton);
   listItem.appendChild(deleteButton);
+  listItem.classList.add("todo__item");
 
   return listItem;
 };
@@ -62,7 +64,7 @@ var editTask = function () {
   var editInput = listItem.querySelector("input[type=text]");
   var label = listItem.querySelector("label");
   var editBtn = listItem.querySelector(".edit");
-  var containsClass = listItem.classList.contains("todo__edit");
+  var containsClass = listItem.classList.contains("edit");
 
   //If class of the parent is .editmode
   if (containsClass) {
@@ -76,7 +78,7 @@ var editTask = function () {
   }
 
   //toggle .editmode on the parent
-  listItem.classList.toggle("todo__edit");
+  listItem.classList.toggle("edit");
 };
 
 //Delete task.

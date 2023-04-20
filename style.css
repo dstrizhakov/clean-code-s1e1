@@ -1,4 +1,4 @@
-/* Basic Style */
+/* Reset styles */
 ul {
   margin: 0;
   padding: 0px;
@@ -24,17 +24,37 @@ button {
   cursor: pointer;
 }
 
+input[type="text"] {
+  margin: 0;
+  font-size: 18px;
+  line-height: 18px;
+  height: 21px;
+  padding: 0 9px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 6px;
+  font-family: Lato, sans-serif;
+  color: #888;
+}
+
+input[type="text"]:focus {
+  color: #333;
+}
+
 button:hover {
   color: #3a3a3a;
 }
 
 body {
-  width: 500px;
-  margin: 0 auto;
-  padding: 0 10px;
+  font-family: Lato, sans-serif;
   background-color: #f8f8f8;
   color: #333;
-  font-family: Lato, sans-serif;
+}
+
+.main {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0 10px;
 }
 
 .planning {
@@ -57,7 +77,6 @@ body {
 }
 
 .todo__heading {
-  color: #333;
   font-weight: 700;
   font-size: 15px;
   border-bottom: 2px solid #333;
@@ -78,25 +97,7 @@ body {
   display: flex;
 }
 
-input[type="text"] {
-  margin: 0;
-  font-size: 18px;
-  line-height: 18px;
-  height: 21px;
-  padding: 0 9px;
-  border: 1px solid #ddd;
-  background: #fff;
-  border-radius: 6px;
-  font-family: Lato, sans-serif;
-  color: #888;
-}
-
-input[type="text"]:focus {
-  color: #333;
-}
-
-/* Task list */
-li {
+.todo__item {
   overflow: hidden;
   padding: 20px 0;
   border-bottom: 1px solid #eee;
@@ -105,23 +106,24 @@ li {
   align-items: center;
 }
 
-li > * {
+.todo__item > * {
   vertical-align: middle;
 }
 
-li > input[type="checkbox"] {
+.todo__item > input[type="checkbox"] {
   margin: 0 10px;
 }
 
-li > label {
+.todo__item > label {
   padding-left: 10px;
   box-sizing: border-box;
   font-size: 18px;
   width: 226px;
 }
 
-li > input[type="text"] {
+.todo__item > input[type="text"] {
   width: 226px;
+  display: none;
 }
 
 .delete img {
@@ -140,16 +142,11 @@ li > input[type="text"] {
   color: #888;
 }
 
-/* Edit Task */
-ul li input[type="text"] {
-  display: none;
-}
-
-.todo__edit input[type="text"] {
+/* Edit modificator */
+.edit input[type="text"] {
   display: inline-block;
   width: 224px;
 }
-
-.todo__edit label {
+.edit label {
   display: none;
 }
