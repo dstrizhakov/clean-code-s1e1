@@ -5,29 +5,24 @@
 //Break things down into smaller steps and take each step at a time.
 //Event handling, user interaction is what starts the code execution.
 
-var taskInput = document.getElementById("new-task"); //Add a new task.
-var addButton = document.getElementsByTagName("button")[0]; //first button
-var incompleteTaskHolder = document.getElementById("incompleteTasks"); //ul of #incompleteTasks
-var completedTasksHolder = document.getElementById("completed-tasks"); //completed-tasks
+const taskInput = document.getElementById("new-task"); //Add a new task.
+const addButton = document.getElementById("add-button"); //Add a new task.
+const incompleteTaskHolder = document.getElementById("incomplete-tasks");
+const completedTasksHolder = document.getElementById("completed-tasks");
 
 //New task list item
-var createNewTaskElement = function (taskString) {
-  var listItem = document.createElement("li");
-  //input (checkbox)
-  var checkBox = document.createElement("input"); //checkbx
-  //label
-  var label = document.createElement("label"); //label
-  //input (text)
-  var editInput = document.createElement("input"); //text
-  //button.edit
-  var editButton = document.createElement("button"); //edit button
-  //button.delete
-  var deleteButton = document.createElement("button"); //delete button
-  var deleteButtonImg = document.createElement("img"); //delete button image
+const createNewTaskElement = function (taskString) {
+  //create elements for new task
+  const listItem = document.createElement("li");
+  const checkBox = document.createElement("input");
+  const label = document.createElement("label");
+  const editInput = document.createElement("input");
+  const editButton = document.createElement("button");
+  const deleteButton = document.createElement("button");
+  const deleteButtonImg = document.createElement("img");
 
   label.innerText = taskString;
   label.className = "task";
-  //Each elements, needs appending
   checkBox.type = "checkbox";
   editInput.type = "text";
   editInput.className = "task";
@@ -37,7 +32,6 @@ var createNewTaskElement = function (taskString) {
   deleteButtonImg.src = "./remove.svg";
   deleteButton.appendChild(deleteButtonImg);
 
-  //and appending
   listItem.appendChild(checkBox);
   listItem.appendChild(label);
   listItem.appendChild(editInput);
@@ -68,7 +62,7 @@ var editTask = function () {
   var editInput = listItem.querySelector("input[type=text]");
   var label = listItem.querySelector("label");
   var editBtn = listItem.querySelector(".edit");
-  var containsClass = listItem.classList.contains("editMode");
+  var containsClass = listItem.classList.contains("todo__edit");
 
   //If class of the parent is .editmode
   if (containsClass) {
@@ -82,7 +76,7 @@ var editTask = function () {
   }
 
   //toggle .editmode on the parent
-  listItem.classList.toggle("editMode");
+  listItem.classList.toggle("todo__edit");
 };
 
 //Delete task.
